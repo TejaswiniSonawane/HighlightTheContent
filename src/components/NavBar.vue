@@ -7,12 +7,6 @@
           <li class="nav-item">
             <router-link class="nav-link" to="/bloglist/add">Add</router-link>
           </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/bloglist/edit/:blogId">Edit</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link class="nav-link" to="/bloglist/view/:blogId">View</router-link>
-          </li>
         </ul>
       </div>
     </div>

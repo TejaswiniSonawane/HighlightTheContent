@@ -5,15 +5,15 @@
               <div class="card-header flex-row">
                 <span class="flex-start"> {{ item.title }}</span>
                 <div class="card-controls flex-end">
-                  <router-link to="/bloglist/view/:item.id" :blogItem={item} class="btn btn-warning" >
+                  <router-link :to="{ path: '/bloglist/view/'+item.id}" :blogItem="{item}" class="btn btn-warning" >
                     View
                   </router-link>
-                  <router-link to="/bloglist/edit/:item.id"  :blogItem={item} class="btn btn-primary">
+                  <router-link :to="{ path: '/bloglist/edit/'+item.id}"  :blogItem="{item}" class="btn btn-primary">
                     Edit
                   </router-link>
-<!--                  <router-link to="/" class="btn btn-danger">-->
-<!--                    Delete-->
-<!--                  </router-link>-->
+                  <button @click="deleteBlog(item.id)" class="btn btn-danger">
+                    Delete
+                  </button>
                 </div>
               </div>
               <div class="card-body">
@@ -40,6 +40,14 @@ export default {
         title: 'positive vibes',
         content: 'all positive vibes'
       }]
+    }
+  },
+  methods:{
+    deleteBlog(blogId){
+      const newArr = this.blogList.filter(object => {
+        return object.id !== blogId;
+      });
+      this.blogList = newArr;
     }
   }
 }
